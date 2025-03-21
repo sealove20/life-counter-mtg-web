@@ -1,0 +1,71 @@
+.panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50vh;
+    position: relative;
+}
+
+.life-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: bold;
+    position: relative;
+    width: 100%;
+}
+
+.life {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0 20px;
+}
+
+.button {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: none;
+    color: white;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.poison {
+    margin-top: 10px;
+}
+
+.top-left {
+    background-color: #ff9999;
+}
+
+/* Red */
+.top-right {
+    background-color: #99ccff;
+}
+
+/* Blue */
+.bottom-left {
+    background-color: #99ff99;
+}
+
+/* Green */
+.bottom-right {
+    background-color: #ffcc99;
+}
+
+/* Orange */
+
+@media (max-width: 768px) {
+    .panel {
+        height: 50vh;
+    }
+}

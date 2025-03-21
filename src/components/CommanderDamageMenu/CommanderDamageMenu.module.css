@@ -1,0 +1,33 @@
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.modalContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.damageRow {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.closeButton {
+    margin-top: 10px;
+    background: red;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
