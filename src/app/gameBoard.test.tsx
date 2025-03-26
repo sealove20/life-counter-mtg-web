@@ -6,10 +6,16 @@ import userEvent from "@testing-library/user-event";
 import Home from "./page";
 
 describe("GameBoard Component", () => {
-    it("should render the correct number of players", () => {
+    it("should render the correct number of players for a regular commander game", () => {
         useGameStore.getState().setPlayerCount(4);
         render(<Home />);
         expect(screen.getAllByText("40")).toHaveLength(4);
+    });
+
+    it("should render the correct number of players for an one on one game", () => {
+        useGameStore.getState().setPlayerCount(2);
+        render(<Home />);
+        expect(screen.getAllByText("20")).toHaveLength(2);
     });
 
     it("should increase and decrease life when buttons are clicked", async () => {
