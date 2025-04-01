@@ -25,13 +25,65 @@
 
 .settingsButton {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background: white;
   border-radius: 50%;
   padding: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   border: none;
+}
+
+.panel {
+  display: flex;
+  place-content: center;
+  flex-wrap: wrap;
+  position: absolute;
+  background-color: wheat;
+  height: 250px;
+  width: 0;
+  border-radius: 50%;
+}
+
+.grow {
+  animation: increaseSize 0.5s forwards;
+}
+
+.closing {
+  height: 50px;
+  width: 50px;
+}
+
+.settings {
+  position: absolute;
+  height: 50px;
+
+  top: 5%;
+}
+
+@keyframes increaseSize {
+  from {
+    width: 0;
+    height: 0;
+  }
+
+  to {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+.shrink {
+  animation: shrink 0.5s forwards;
+}
+
+@keyframes shrink {
+  from {
+    width: 250px;
+    height: 250px;
+  }
+
+  to {
+    width: 0;
+    height: 0;
+  }
 }
