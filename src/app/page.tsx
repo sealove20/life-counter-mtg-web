@@ -9,7 +9,22 @@ const Home: React.FC = () => {
   const { players, playerCount } = useGameStore();
   const layoutClass = playerCount === 2 ? styles['two-players'] : styles['four-players'];
   const [showSettings, setShowSettings] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
 
+
+  const openPanel = () => {
+    setIsExpanded(true);
+    setIsClosing(false);
+  };
+
+  const closePanel = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsExpanded(false);
+      setIsClosing(false);
+    }, 250); // close animation speed
+  };
 
   return (
     <div className={`${styles.container} ${layoutClass}`}>
@@ -19,9 +34,17 @@ const Home: React.FC = () => {
         ))}
       </div>
 
-      <button className={styles.settingsButton} onClick={() => setShowSettings(true)}>
-        x
+      <button className={styles.settingsButton} onClick={openPanel}>
+        Open
       </button>
+
+      {isExpanded && (
+        <div className={`${styles.panel} ${isClosing ? styles.shrink : styles.grow}`}>
+          <button className={styles.closing} onClick={closePanel}>X</button>
+          <button className={styles.settings} onClick={() => setShowSettings(true)}>Settings</button>
+        </div>
+      )}
+
 
       {showSettings && <SettingsMenu onClose={() => setShowSettings(false)} />}
     </div>
