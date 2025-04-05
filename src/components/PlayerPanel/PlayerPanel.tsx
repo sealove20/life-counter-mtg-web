@@ -57,18 +57,16 @@ const PlayerPanel: React.FC<Props> = ({ playerId, rotated }) => {
       onClick={handleClick}
     >
       <div className={`${styles["life-container"]}`}>
-        <button className={styles.button} onClick={() => setLife(playerId, -1)}>
-          -
-        </button>
+        {/* <button className={styles.button} aria-label="decrease life"> */}-
+        {/* </button> */}
         <span
           className={styles.life}
           onClick={() => setShowCommanderMenu(true)}
         >
           {effectiveLife}
         </span>
-        <button className={styles.button} onClick={() => setLife(playerId, 1)}>
-          +
-        </button>
+        {/* <button className={styles.button} aria-label="increase life"> */}+
+        {/* </button> */}
       </div>
 
       {showCommanderMenu && (
