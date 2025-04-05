@@ -1,71 +1,97 @@
 .panel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 50vh;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50vh;
+  position: relative;
 }
 
 .life-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
-    font-weight: bold;
-    position: relative;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: bold;
+  position: relative;
+  width: 100%;
 }
 
 .life {
-    font-size: 48px;
-    font-weight: bold;
-    margin: 0 20px;
+  font-size: 48px;
+  font-weight: bold;
+  margin: 0 20px;
 }
 
 .button {
-    background-color: rgba(0, 0, 0, 0.2);
-    border: none;
-    color: white;
-    font-size: 24px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: none;
+  color: white;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .button:hover {
-    background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.leftClick {
+  animation: flashRed 0.2s;
+}
+
+.rightClick {
+  animation: flashGreen 0.2s;
+}
+
+@keyframes flashRed {
+  0% {
+    background-color: rgba(255, 0, 0, 0.5);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes flashGreen {
+  0% {
+    background-color: rgba(0, 255, 0, 0.5);
+  }
+  100% {
+    background-color: transparent;
+  }
 }
 
 .poison {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .top-left {
-    background-color: #ff9999;
+  background-color: #ff9999;
 }
 
 /* Red */
 .top-right {
-    background-color: #99ccff;
+  background-color: #99ccff;
 }
 
 /* Blue */
 .bottom-left {
-    background-color: #99ff99;
+  background-color: #99ff99;
 }
 
 /* Green */
 .bottom-right {
-    background-color: #ffcc99;
+  background-color: #ffcc99;
 }
 
 /* Orange */
 
 @media (max-width: 768px) {
-    .panel {
-        height: 50vh;
-    }
+  .panel {
+    height: 50vh;
+  }
 }
