@@ -3,9 +3,9 @@ import { useGameStore } from "../../store/gameStore";
 import styles from "./PlayerPanel.module.css";
 import CommanderDamageMenu from "../CommanderDamageMenu/CommanderDamageMenu";
 
-type Props = { playerId: number };
+type Props = { playerId: number; rotated?: boolean };
 
-const PlayerPanel: React.FC<Props> = ({ playerId }) => {
+const PlayerPanel: React.FC<Props> = ({ playerId, rotated }) => {
   const { players, setLife } = useGameStore();
   const player = players.find((p) => p.id === playerId);
   const [showCommanderMenu, setShowCommanderMenu] = useState(false);
@@ -38,26 +38,25 @@ const PlayerPanel: React.FC<Props> = ({ playerId }) => {
     const panelWidth = panel.offsetWidth;
     const clickX = event.nativeEvent.offsetX;
 
-    // Determine if it's a left or right click
     const isLeft = clickX < panelWidth / 2;
     const effectClass = isLeft ? styles.leftClick : styles.rightClick;
 
-    // Apply temporary effect class
     panel.classList.add(effectClass);
     setTimeout(() => {
       panel.classList.remove(effectClass);
-    }, 200); // Remove effect after 200ms
+    }, 200);
 
-    // Update life total
     setLife(player.id, isLeft ? -1 : 1);
   };
 
   return (
     <div
-      className={`${styles.panel} ${bgClass(playerId)}`}
+      className={`${styles.panel} ${bgClass(playerId)} ${
+        rotated ? styles.rotated : ""
+      }`}
       onClick={handleClick}
     >
-      <div className={styles["life-container"]}>
+      <div className={`${styles["life-container"]}`}>
         <button className={styles.button} onClick={() => setLife(playerId, -1)}>
           -
         </button>

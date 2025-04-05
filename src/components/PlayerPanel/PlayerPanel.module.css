@@ -65,6 +65,10 @@
   }
 }
 
+.rotated {
+  transform: rotate(180deg);
+}
+
 .poison {
   margin-top: 10px;
 }
