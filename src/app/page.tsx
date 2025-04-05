@@ -4,6 +4,7 @@ import { useGameStore } from "../store/gameStore";
 import PlayerPanel from "../components/PlayerPanel/PlayerPanel";
 import SettingsMenu from "../components/SettingsMenu/SettingsMenu";
 import styles from "./page.module.css";
+import { useWakeLock } from "@/hooks/useWakeLock";
 
 const Home: React.FC = () => {
   const { players, playerCount } = useGameStore();
@@ -12,6 +13,8 @@ const Home: React.FC = () => {
   const [showSettings, setShowSettings] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+
+  useWakeLock();
 
   const openPanel = () => {
     setIsExpanded(true);
@@ -54,7 +57,11 @@ const Home: React.FC = () => {
             isClosing ? styles.shrink : styles.grow
           }`}
         >
-          <button className={styles.closing} onClick={closePanel}>
+          <button
+            className={styles.closing}
+            onClick={closePanel}
+            aria-label="Close settings"
+          >
             X
           </button>
           <button
